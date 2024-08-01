@@ -19,7 +19,21 @@ problem link : https://leetcode.com/problems/valid-palindrome/
 class Solution {
 public:
     bool isPalindrome(string s) {
-        
+        string filtrd;
+        for (char c : s) {
+            if (isalnum(c)) {
+                filtrd += tolower(c);
+            }
+        }
+
+        int lft = 0, rit = filtrd.length() - 1;
+        while (lft < rit) {
+            if (filtrd[lft] != filtrd[rit]) {
+                return false;
+            }
+            lft++;rit--;
+        }
+        return true;
     }
 };
 
