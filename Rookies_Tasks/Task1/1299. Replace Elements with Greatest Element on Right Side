@@ -51,6 +51,7 @@ public:
             int temp = arr[i];
             arr[i] = max_from_right;
             if (temp > max_from_right) {
+                // make sure that the temp is larger from all the prev elments 
                 max_from_right = temp;
             }
         }
