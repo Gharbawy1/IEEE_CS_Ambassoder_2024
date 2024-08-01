@@ -7,7 +7,7 @@
 #include<cmath>
 using namespace std;
 
-#define KAK ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define AHMED ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define sp ' ';
 #define ll long long
 const long long oo = 1e18;
@@ -15,7 +15,7 @@ const int N1 = 1e3;
 
 problem link : https://codeforces.com/contest/1950/problem/B
 
-void solve(int n) {
+void Elghrabawy(int n) {
     char ckbrd[2 * n][2 * n];
 
     for (int rw = 0; rw < 2 * n; rw++) {
@@ -37,14 +37,14 @@ void solve(int n) {
 }
 
 int main() {
-    KAK // for speed input and output
+    AHMED // for speed input and output
 
     int tc;
     cin >> tc;
     while (tc--) {
         int n;
         cin >> n;
-        solve(n);
+        Elghrabawy(n);
     }
 
     return 0;
