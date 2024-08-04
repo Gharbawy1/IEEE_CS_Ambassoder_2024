@@ -31,10 +31,10 @@ string Elghrabawy() {
     int lst = obser[n - 1];
     int seclst = obser[n - 2];
 
-    if (last == 15)return "DOWN";
-    if (last == 0) return "UP";
-    if (last > seclst) return "UP";
-    if (last < seclst) return"DOWN";
+    if (lst == 15)return "DOWN";
+    if (lst == 0) return "UP";
+    if (lst > seclst) return "UP";
+    if (lst < seclst) return"DOWN";
 
     return "-1";
 }
