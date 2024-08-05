@@ -30,22 +30,27 @@ int t;
 
         vector<int> ingredients(n);
         unordered_map<int, priority_queue<int, vector<int>, greater<int>>> nextUsage;
+        
         set<int> outside;
-        unordered_map<int, int> nextUsageIndex;
+        unordered_map<int, int> nextUsageIndex; // i use it to map for each ing to its next usg idx
 
         for (int i = 0; i < n; ++i) {
             cin >> ingredients[i];
             nextUsage[ingredients[i]].push(i);
         }
+        /*
+            NxUsg = {
+                1: [0, 6],2: [1, 5],3: [2, 4],4: [3]
+            }
+        */
 
         int openCount = 0;
 
         for (int i = 0; i < n; ++i) {
-            int ingredient = ingredients[i];
-            nextUsage[ingredient].pop();
-            nextUsageIndex[ingredient] = nextUsage[ingredient].empty() ? INT_MAX : nextUsage[ingredient].top();
+            nextUsage[ingredients[i]].pop();
+            nextUsageIndex[ingredients[i]] = nextUsage[ingredients[i]].empty() ? INT_MAX : nextUsage[ingredients[i]].top();
 
-            if (outside.count(ingredient)) {
+            if (outside.count(ingredients[i])) {
                 continue;
             }
 
@@ -55,6 +60,7 @@ int t;
 
                 for (int outIngredient : outside) {
                     if (nextUsageIndex[outIngredient] > farthestUse) {
+                        // hint : select the ingrediant that used in the last(furtheust future)
                         farthestUse = nextUsageIndex[outIngredient];
                         toRemove = outIngredient;
                     }
@@ -63,7 +69,7 @@ int t;
                 outside.erase(toRemove);
             }
 
-            outside.insert(ingredient);
+            outside.insert(ingredients[i]);
             openCount++;
         }
 
