@@ -33,7 +33,6 @@ int t;
         set<int> outside;
         unordered_map<int, int> nextUsageIndex;
 
-        // Read the sequence of ingredients and prepare the nextUsage map
         for (int i = 0; i < n; ++i) {
             cin >> ingredients[i];
             nextUsage[ingredients[i]].push(i);
