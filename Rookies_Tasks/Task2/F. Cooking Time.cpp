@@ -55,6 +55,7 @@ int t;
             }
 
             if (outside.size() == k) {
+                // here we must to start in deciding process (which element we want to remove)
                 int toRemove = -1;
                 int farthestUse = -1;
 
